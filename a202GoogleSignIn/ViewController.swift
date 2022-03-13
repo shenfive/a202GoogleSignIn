@@ -10,14 +10,18 @@ import GoogleSignIn
 import Firebase
 
 class ViewController: UIViewController {
+    @IBOutlet weak var status: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         Auth.auth().addStateDidChangeListener { auth, user in
             if let user = user{
-                print("登入狀態\(user.email)")
+                let theEmail = user.email ?? ""
+                print("登入狀態\(theEmail)")
+                self.status.text = "歡迎:\(user.email)"
             }else{
                 print("登出狀態")
+                self.status.text = "登出狀態"
             }
         }
         
