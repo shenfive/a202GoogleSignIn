@@ -18,7 +18,7 @@ class ViewController: UIViewController {
             if let user = user{
                 let theEmail = user.email ?? ""
                 print("登入狀態\(theEmail)")
-                self.status.text = "歡迎:\(user.email)"
+                self.status.text = "歡迎:\(theEmail)"
             }else{
                 print("登出狀態")
                 self.status.text = "登出狀態"
